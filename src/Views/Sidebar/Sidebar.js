@@ -6,9 +6,9 @@ import ActionButtons from "./ActionButtons";
 function Sidebar(props) {
     const [stepID, setStepID] = React.useState(1)
     const [stepState, setStepState] = React.useState(
-        ['current','disabled','disabled','disabled','disabled','disabled','disabled']
+        ['current', 'disabled', 'disabled', 'disabled', 'disabled', 'disabled', 'disabled']
     )
-    const [requestValues,setRequestValues] = useState({
+    const [requestValues, setRequestValues] = useState({
         access_error: null,
         engineering_access: null,
         programming_access: null,
@@ -29,13 +29,14 @@ function Sidebar(props) {
         group_location: "Tractor, Cab, and Assy. Ops. (TCAO)",
         jdpsfocus: "Yes"
     })
-    const [errorFlag,setErrorFlag] = useState(false)
+    const [errorFlag, setErrorFlag] = useState(false)
     return (
         <div className="wrapper-container">
             <h1>Request Access</h1>
             <form id="request_access" role="application" className="wizard clearfix vertical" noValidate="noValidate">
                 <ListItemLink stepID={stepID} setStepID={setStepID} stepState={stepState} setStepState={setStepState}/>
-                <SideContent stepID={stepID} setStepID={setStepID} requestValues={requestValues} setRequestValues={setRequestValues} setErrorFlag={setErrorFlag}/>
+                <SideContent stepID={stepID} setStepID={setStepID} requestValues={requestValues}
+                             setRequestValues={setRequestValues} setErrorFlag={setErrorFlag}/>
                 <ActionButtons stepID={stepID} setStepID={setStepID} stepState={stepState} setStepState={setStepState}/>
             </form>
         </div>

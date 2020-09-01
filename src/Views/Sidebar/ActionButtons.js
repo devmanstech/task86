@@ -13,6 +13,8 @@ function ActionButtons(props) {
             setStepID(stepID + 1)
             return
         }
+        console.log("***********",stepID)
+        if (stepID>6)return;
         console.log(curItemState)
         // if (curItemState=='disabled' || curItemState=='error') return
         if (curItemState=='error') return

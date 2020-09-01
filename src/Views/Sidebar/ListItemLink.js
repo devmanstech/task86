@@ -24,10 +24,13 @@ function ListItemLink(props) {
     const handleClick=stepID=>{
         if (stepState[stepID-1]=='disabled')return
         if (stepID>1){
-            var tempStepState = [...stepState];
+            console.log("=================",stepState)
+            var tempStepState = stepState;
             tempStepState[0]='done'
             setStepState(tempStepState)
         }
+        console.log("this is step id",stepID)
+        if (stepID>7)return;
         setStepID(stepID)
     }
     return (
@@ -35,7 +38,7 @@ function ListItemLink(props) {
                 <ul role="tablist">
                     {
                     steps.map((step,key)=>{
-                        return <ListItem handleClick={handleClick}
+                        return <ListItem handleClick={()=>handleClick(key+1)}
                                          key={key}
                                          step={step}
                                          index={key+1}
